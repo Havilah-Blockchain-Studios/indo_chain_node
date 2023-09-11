@@ -28,6 +28,11 @@ To start the chain
 ```
 bash node.sh
 ```
+To stop the chain
+```
+docker-compose stop
+```
+
 You will see the following:
 
 ```
@@ -44,7 +49,7 @@ $ docker compose up -d
 Next, you can inspect the logs of the different services launched. 
 
 ```
-docker logs eth-pos-devnet-geth-1 -f
+docker logs indo_chain-geth-1 -f
 ```
 
 and see:
