@@ -16,10 +16,18 @@ The development net is fully functional and allows for the deployment of smart c
 First, install Docker. Then, run:
 
 ```
-git clone https://github.com/rauljordan/eth-pos-devnet && cd eth-pos-devnet
-docker compose up -d
+git clone https://github.com/Havilah-Blockchain-Studios/indo_chain
+cd indo_chain
+```
+To Initiate the chian
+```
+bash start.sh
 ```
 
+To start the chain
+```
+bash node.sh
+```
 You will see the following:
 
 ```
