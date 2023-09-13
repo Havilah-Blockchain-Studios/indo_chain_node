@@ -45,6 +45,7 @@ services:
     command:
       - --datadir=/consensus/beacondata
       # No peers to sync with in this testnet, so setting to 0
+      - --p2p-host-ip
       - --min-sync-peers=0
       - --genesis-state=/consensus/genesis.ssz
       - --bootstrap-node=
@@ -68,6 +69,8 @@ services:
       - 4000:4000
       - 3500:3500
       - 8080:8080
+      - 13000:13000
+      - 12000:12000
     volumes:
       - ./consensus:/consensus
       - ./jwtsecret:/execution/jwtsecret
