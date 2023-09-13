@@ -46,9 +46,9 @@ services:
       - --datadir=/consensus/beacondata
       # No peers to sync with in this testnet, so setting to 0
       - --p2p-host-ip
-      - --min-sync-peers=0
+      - --min-sync-peers=1
       - --genesis-state=/consensus/genesis.ssz
-      - --bootstrap-node=
+      - --bootstrap-node=\
       # The chain configuration file used for setting up Prysm
       - --chain-config-file=/consensus/config.yml
       # We specify the chain id used by our execution client
