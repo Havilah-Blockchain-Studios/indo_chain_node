@@ -12,7 +12,7 @@ services:
       - --output-ssz=/consensus/genesis.ssz
       - --chain-config-file=/consensus/config.yml
       - --geth-genesis-json-in=/execution/genesis.json
-      - --geth-genesis-json-out=/execution/_genesis.json
+      - --geth-genesis-json-out=/execution/genesis.json
     volumes:
       - ./consensus:/consensus
       - ./execution:/execution
