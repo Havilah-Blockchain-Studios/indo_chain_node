@@ -16,6 +16,7 @@ services:
       - --datadir=/execution
       - --allow-insecure-unlock
       - --syncmode=full
+      - --gcmode=archive
       - --networkid=772    
       #- --mine
       #- --miner.etherbase=0xbd877cb457a66eb883f4bfd9ce39d040dd0f6a9b
