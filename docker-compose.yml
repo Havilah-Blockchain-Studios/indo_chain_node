@@ -38,6 +38,7 @@ services:
       - 8545:8545
       - 30303:30303
       - 30301:30301
+      - 3334:3334
     volumes:
       - ./execution:/execution
       - ./execution/geth_password.txt:/execution/geth_password.txt
