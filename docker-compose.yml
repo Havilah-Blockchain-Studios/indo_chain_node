@@ -26,7 +26,7 @@ services:
       #- --metrics.influxdb.endpoint=http://178.18.252.53:8086
       #- --metrics.influxdb.username=Indo
       #- --metrics.influxdb.password=Indoex11
-      - --bootnodes="enode://736d9bb5fa84cd7f36c15e9320f22bd79e4503659e5d20a443b876735c43c38863ed01a59c027b5b96c3bdd3f122a2d93e2b6197a29328766850387b9d3f5fec@5.189.176.210:30303?discport=14742"
+      - --bootnodes=enode://736d9bb5fa84cd7f36c15e9320f22bd79e4503659e5d20a443b876735c43c38863ed01a59c027b5b96c3bdd3f122a2d93e2b6197a29328766850387b9d3f5fec@5.189.176.210:30303?discport=14742
     ports:
       - 8551:8551
       - 8545:8545
