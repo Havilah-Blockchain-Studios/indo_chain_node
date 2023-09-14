@@ -27,7 +27,7 @@ services:
       #- --metrics.influxdb.endpoint=http://178.18.252.53:8086
       #- --metrics.influxdb.username=Indo
       #- --metrics.influxdb.password=Indoex11
-      - --bootnodes=enode://736d9bb5fa84cd7f36c15e9320f22bd79e4503659e5d20a443b876735c43c38863ed01a59c027b5b96c3bdd3f122a2d93e2b6197a29328766850387b9d3f5fec@5.189.176.210:30303?discport=14742
+      - --bootnodes=enode://8de640d84d23ea4d5376957d28174f9be70aac606e429976dc69c1e0994fdb23aff8bbbd2e240b0f783ac07cda15b7219d9326c1c10abf409cccbfe3d4e01e96@5.189.176.210:30303?discport=38899
     ports:
       - 8551:8551
       - 8545:8545
@@ -42,54 +42,54 @@ services:
   # and connects to go-ethereum in the same network as the execution client.
   # The account used in go-ethereum is set as the suggested fee recipient for transactions
   # proposed via the validators attached to the beacon node.
-  # beacon-chain:
-  #   image: "gcr.io/prysmaticlabs/prysm/beacon-chain:latest"
-  #   command:
-  #     - --datadir=/consensus/beacondata
-  #     # No peers to sync with in this testnet, so setting to 0
-  #     #- --p2p-host-ip=5.189.176.210
-  #     - --min-sync-peers=0
-  #     - --genesis-state=/consensus/genesis.ssz
-  #     - --bootstrap-node=\
-  #     # The chain configuration file used for setting up Prysm
-  #     - --chain-config-file=/consensus/config.yml
-  #     # We specify the chain id used by our execution client
-  #     - --chain-id=772
-  #     - --rpc-host=0.0.0.0
-  #     - --contract-deployment-block=0
-  #     - --grpc-gateway-host=0.0.0.0
-  #     - --execution-endpoint=http://geth:8551
-  #     - --accept-terms-of-use
-  #     - --jwt-secret=/execution/jwtsecret
-  #     - --suggested-fee-recipient=0x123463a4b065722e99115d6c222f267d9cabb524
-  #   depends_on:
-  #     geth:
-  #       condition: service_started
-  #     # create-beacon-chain-genesis:
-  #     #   condition: service_completed_successfully
-  #   ports:
-  #     - 4000:4000
-  #     - 3500:3500
-  #     - 8080:8080
-  #     - 13000:13000
-  #     - 12000:12000
-  #   volumes:
-  #     - ./consensus:/consensus
-  #     - ./jwtsecret:/execution/jwtsecret
-
+   beacon-chain:
+     image: "gcr.io/prysmaticlabs/prysm/beacon-chain:latest"
+     command:
+       - --datadir=/consensus/beacondata
+       # No peers to sync with in this testnet, so setting to 0
+       - --p2p-host-ip=167.86.87.186
+       - --min-sync-peers=0
+       - --genesis-state=/consensus/genesis.ssz
+       - --bootstrap-node=\
+       # The chain configuration file used for setting up Prysm
+       - --chain-config-file=/consensus/config.yml
+       # We specify the chain id used by our execution client
+       - --chain-id=772
+       - --rpc-host=0.0.0.0
+       - --contract-deployment-block=0
+       - --grpc-gateway-host=0.0.0.0
+       - --execution-endpoint=http://geth:8551
+       - --accept-terms-of-use
+       - --jwt-secret=/execution/jwtsecret
+       - --suggested-fee-recipient=0x123463a4b065722e99115d6c222f267d9cabb524
+       - --peer=/ip4/5.189.176.210/tcp/13000/p2p/16Uiu2HAmQK1EhSVjutKcmVtvV5Y5kuSBgt1gWy6Uct1cqz4RB3Zs
+     depends_on:
+       geth:
+         condition: service_started
+       # create-beacon-chain-genesis:
+       #   condition: service_completed_successfully
+     ports:
+       - 4000:4000
+       - 3500:3500
+       - 8080:8080
+       - 13000:13000
+       - 12000:12000
+     volumes:
+       - ./consensus:/consensus
+       - ./jwtsecret:/execution/jwtsecret
   # # We run a validator client with 64, deterministically-generated keys that match
   # # The validator keys present in the beacon chain genesis state generated a few steps above.
-  # validator:
-  #   image: "gcr.io/prysmaticlabs/prysm/validator:latest"
-  #   command:
-  #     - --beacon-rpc-provider=beacon-chain:4000
-  #     - --datadir=/consensus/validatordata
-  #     - --accept-terms-of-use
-  #     - --interop-num-validators=64
-  #     - --interop-start-index=0
-  #     - --chain-config-file=/consensus/config.yml
-  #   depends_on:
-  #     beacon-chain:
-  #       condition: service_started
-  #   volumes:
-  #     - ./consensus:/consensus
+   validator:
+     image: "gcr.io/prysmaticlabs/prysm/validator:latest"
+     command:
+       - --beacon-rpc-provider=beacon-chain:4000
+       - --datadir=/consensus/validatordata
+       - --accept-terms-of-use
+       - --interop-num-validators=64
+       - --interop-start-index=0
+       - --chain-config-file=/consensus/config.yml
+     depends_on:
+       beacon-chain:
+         condition: service_started
+     volumes:
+       - ./consensus:/consensus
