@@ -57,6 +57,7 @@ services:
       - --p2p-static-id=true
       - --min-sync-peers=0
       - --genesis-state=/consensus/genesis.ssz
+      - --enable-debug-rpc-endpoints=true
       #- --bootstrap-node=\
       # The chain configuration file used for setting up Prysm
       - --chain-config-file=/consensus/config.yml
