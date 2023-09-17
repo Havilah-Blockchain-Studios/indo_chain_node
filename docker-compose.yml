@@ -32,7 +32,7 @@ services:
       #- --metrics.influxdb.endpoint=http://178.18.252.53:8086
       #- --metrics.influxdb.username=Indo
       #- --metrics.influxdb.password=Indoex11
-      - --bootnodes=enode://8de640d84d23ea4d5376957d28174f9be70aac606e429976dc69c1e0994fdb23aff8bbbd2e240b0f783ac07cda15b7219d9326c1c10abf409cccbfe3d4e01e96@5.189.176.210:30303?discport=38899
+      #- --bootnodes=enode://8de640d84d23ea4d5376957d28174f9be70aac606e429976dc69c1e0994fdb23aff8bbbd2e240b0f783ac07cda15b7219d9326c1c10abf409cccbfe3d4e01e96@5.189.176.210:30303?discport=38899
     ports:
       - 8551:8551
       - 8545:8545
@@ -53,7 +53,8 @@ services:
     command:
       - --datadir=/consensus/beacondata
       # No peers to sync with in this testnet, so setting to 0
-      - --p2p-host-ip=167.86.87.186
+      - --p2p-local-ip=167.86.87.186
+      - --p2p-static-id=true
       - --min-sync-peers=0
       - --genesis-state=/consensus/genesis.ssz
       #- --bootstrap-node=\
